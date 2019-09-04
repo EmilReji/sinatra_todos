@@ -1,0 +1,12 @@
+<ul id="lists">
+  <% sort_lists(@lists) do |list, index| %>
+    <li class=<%= list_class(list) %>>
+      <h2 id="<%=index%>"><a href=<%="/lists/#{index}"%>> <%= list[:name] %> </a></h2>
+      <p><%= "#{remaining_todos(list)} / #{list[:todos].size}" %></p>
+    </li>
+  <% end %>
+</ul>
+
+<% content_for :header_links do %>
+  <a class="add" href="/lists/new">New List</a>
+<% end %>
